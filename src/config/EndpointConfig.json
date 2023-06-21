@@ -8,5 +8,25 @@
         "uri": "/auth/signup",
         "method": "POST",
         "loading": false
+    },
+    "POST_TODOS" : {
+        "uri": "/todos",
+        "method": "POST",
+        "loading": false
+    },
+    "GET_TODOS" : {
+        "uri": "/todos",
+        "method": "GET",
+        "loading": false
+    },
+    "PUT_TODOS" : {
+        "uri": "/todos/{id}",
+        "method": "PUT",
+        "loading": false
+    },
+    "DELETE_TODOS" : {
+        "uri": "/todos/{id}",
+        "method": "DELETE",
+        "loading": false
     }
 }

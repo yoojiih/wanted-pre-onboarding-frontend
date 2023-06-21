@@ -10,19 +10,18 @@ class HttpUtil {
     static async call(endpointEnum, params) {
         const endpoint = Endpoints[endpointEnum];
         const formData = new FormData();
+        const token = localStorage.getItem('access_token');
         let axiosResponse;
         let url = endpoint.uri;
 
         if (params) {
-            if (endpoint.method === "GET") {
-                // url += `?${queryString.stringify(params)}`;
-            }
             Object.keys(params).forEach(key => {
                 formData.append(key, params[key]);
             });
         }
         const headers = {
             "content-type": "application/json",
+            "Authorization": `Bearer ${token}`,
         };
 
         try {
