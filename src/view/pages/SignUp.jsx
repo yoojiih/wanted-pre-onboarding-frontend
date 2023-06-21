@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Email from "../components/Email";
 import Password from "../components/Password";
 import HttpUtil from "../../util/HttpUtil";
+import WithUserAuth from "../../hoc/WithUserAuth";
 
-const EMAIL_REGEXP = /^\S+@\S+\.\S+$/;
+const EMAIL_REGEXP = /^\S+@\S+$/;
 
 /**
- * 메인페이지 view
+ * 회원가입 view
  *
  * @return Element 랜더링 뷰
  */
-export default function SignUp() {
+function SignUp() {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
@@ -72,3 +73,5 @@ export default function SignUp() {
         </div>
     );
 }
+
+export default WithUserAuth(SignUp, null);
