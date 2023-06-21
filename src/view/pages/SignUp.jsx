@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Email from "../components/Email";
 import Password from "../components/Password";
+import HttpUtil from "../../util/HttpUtil";
+
 const EMAIL_REGEXP = /^\S+@\S+\.\S+$/;
 
 /**
@@ -31,8 +33,15 @@ export default function SignUp() {
             alert('이메일 혹은 비밀번호를 올바르게 입력해주세요');
             return;
         }
-        // 회원가입이 정상적으로 완료되었을 시 /signin 경로로 이동
-        // api호출 200 ->  navigate('/signin');
+        const response = await HttpUtil.call("POST_SIGNUP",{
+            email: email,
+            password: password,
+        });
+        console.log("response", response);
+        if (response.status === 200){
+            navigate('/signin');
+        }
+        if (!response) return;
     }
     
 

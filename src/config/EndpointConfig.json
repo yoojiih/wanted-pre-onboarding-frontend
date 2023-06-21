@@ -1,0 +1,12 @@
+{
+    "POST_SIGNIN" : {
+        "uri": "/auth/signin",
+        "method": "POST",
+        "loading": false
+    },
+    "POST_SIGNUP" : {
+        "uri": "/auth/signup",
+        "method": "POST",
+        "loading": false
+    }
+}
